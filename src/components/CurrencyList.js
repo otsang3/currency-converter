@@ -10,7 +10,8 @@ function CurrencyList(props) {
         <div>
             <select 
                 name={props.name}
-                onChange={(event) => props.selectCurrency(event.target.name, event.target.value)}>
+                onChange={(event) => props.selectCurrency(event.target.name, event.target.value)}
+                value={props.value}>
                 {renderCurrencies(props.currencies)}
             </select>
         </div>

@@ -4,11 +4,13 @@ import CurrencyList from './CurrencyList';
 
 function CurrencyConverter() {
 
+    currencies.sort();
+
     const initialState = {
         amount: 0,
         currencies: currencies,
-        currency1: currencies[0],
-        currency2: currencies[1],   
+        currency1: currencies[8],
+        currency2: currencies[31]   
     }
 
     const [state, setState] = useState(initialState)
@@ -29,11 +31,13 @@ function CurrencyConverter() {
                 currencies={currencies}
                 name="currency1" 
                 selectCurrency={selectCurrency}
+                value={state.currency1}
             />
             <CurrencyList 
                 currencies={currencies}
                 name="currency2" 
                 selectCurrency={selectCurrency}
+                value={state.currency2}
             />
         </div>
     )
