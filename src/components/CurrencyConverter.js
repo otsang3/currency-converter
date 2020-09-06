@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { currencies } from '../data/Currencies';
 import CurrencyList from './CurrencyList';
+import Result from './Result';
 
 function CurrencyConverter() {
 
@@ -65,6 +66,7 @@ function CurrencyConverter() {
                 value={state.currency2}
             />
             <button onClick={() => handleClick()}>Convert</button>
+            {state.result && <Result result={state.result}/>}
         </div>
     )
 }

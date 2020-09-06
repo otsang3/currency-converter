@@ -1,10 +1,10 @@
 import React from 'react';
 
-function Result() {
+function Result(props) {
 
     return(
         <div>
-
+            {props.result}
         </div>
     )
 }
