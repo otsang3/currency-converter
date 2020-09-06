@@ -42,7 +42,7 @@ function CurrencyConverter() {
     }
 
     const handleClick = () => {
-        if (state.amount == 0) {
+        if (state.amount === 0) {
             return;
         } else {
             fetch("https://api.exchangeratesapi.io/latest?base=" + state.currency1)
