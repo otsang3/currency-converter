@@ -6,17 +6,26 @@ function CurrencyConverter() {
 
     const initialState = {
         amount: 0,
-        currencies: [currencies],
-        selectedCurrency1: null,
-        selectedCurrency2: null,
-        
+        currencies: currencies,
+        selectedCurrency1: currencies[0],
+        selectedCurrency2: currencies[1],   
     }
 
     const [state, setState] = useState(initialState)
 
+    const selectCurr1 = (currency) => {
+        setState(prevState => {
+            return {
+                ...prevState,
+                selectedCurrency1: currency
+            }
+        })
+    }
+
     return(
         <div>
             <input/>
+            <CurrencyList currencies={currencies} selectCurr1={selectCurr1}/>
         </div>
     )
 }
