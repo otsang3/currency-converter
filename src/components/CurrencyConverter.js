@@ -10,7 +10,8 @@ function CurrencyConverter() {
         amount: 0,
         currencies: currencies,
         currency1: currencies[8],
-        currency2: currencies[31]   
+        currency2: currencies[31],
+        result: ""   
     }
 
     const [state, setState] = useState(initialState)
@@ -33,6 +34,21 @@ function CurrencyConverter() {
         })
     }
 
+    const handleClick = () => {
+        fetch("https://api.exchangeratesapi.io/latest?base=" + state.currency1)
+        .then(res => res.json())
+        .then(data => {
+            const rate = data.rates[state.currency2]
+            const result = rate*state.amount
+            setState(prevState => {
+                return {
+                    ...prevState,
+                    result: result
+                }
+            })
+        })
+    }
+
     return(
         <div>
             <input type="number" onChange={(event) => handleChange(event.target.value)}/>
@@ -48,6 +64,7 @@ function CurrencyConverter() {
                 selectCurrency={selectCurrency}
                 value={state.currency2}
             />
+            <button onClick={() => handleClick()}>Convert</button>
         </div>
     )
 }
