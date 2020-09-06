@@ -3,9 +3,9 @@ import React from 'react';
 function Result(props) {
 
     return(
-        <div>
-            {props.result}
-        </div>
+        <div className="col-result">
+            <h1>{props.result}</h1>
+        </div>      
     )
 }
 

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { currencies } from '../data/Currencies';
+import { FaArrowAltCircleRight } from 'react-icons/fa';
 import CurrencyList from './CurrencyList';
 import Result from './Result';
+
 
 function CurrencyConverter() {
 
@@ -51,22 +53,44 @@ function CurrencyConverter() {
     }
 
     return(
-        <div>
-            <input type="number" onChange={(event) => handleChange(event.target.value)}/>
-            <CurrencyList 
-                currencies={currencies}
-                name="currency1" 
-                selectCurrency={selectCurrency}
-                value={state.currency1}
-            />
-            <CurrencyList 
-                currencies={currencies}
-                name="currency2" 
-                selectCurrency={selectCurrency}
-                value={state.currency2}
-            />
-            <button onClick={() => handleClick()}>Convert</button>
-            {state.result && <Result result={state.result}/>}
+        <div className="main-container">
+            <div className="columns">
+
+                <div className="row">
+                    <h3>Amount</h3>
+                    <input type="number" onChange={(event) => handleChange(event.target.value)}/>
+                </div>
+
+                <div className="row">
+                    <h3>From</h3>
+                    <CurrencyList 
+                        currencies={currencies}
+                        name="currency1" 
+                        selectCurrency={selectCurrency}
+                        value={state.currency1}
+                    />
+                </div>
+
+                <div className="row">
+                    <h3>To</h3>
+                    <CurrencyList 
+                        currencies={currencies}
+                        name="currency2" 
+                        selectCurrency={selectCurrency}
+                        value={state.currency2}
+                    />
+                </div>
+
+                <div className="row">
+                    <button 
+                        className="button-submit" 
+                        onClick={() => handleClick()}>
+                        <FaArrowAltCircleRight size="3em" color="orange"/>
+                    </button>
+                </div> 
+
+            </div>
+                {state.result && <Result result={state.result}/>}              
         </div>
     )
 }
