@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+h1 {
+  font-size: 3em;
+}
+
 h3 {
   margin: 0;
 }
@@ -78,7 +82,7 @@ select {
   background-color: rgba(185,185,185,0.25);
   width: 55%;
   margin: 0 auto;
-  height: 22em;
+  height: 23em;
 }
 
 .row {
