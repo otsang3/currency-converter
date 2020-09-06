@@ -36,7 +36,7 @@ select {
   background-size: cover;
   height: 100vh;
   color: white;
-  padding: 8em 0;
+  padding-top: 8em;
 }
 
 .button-submit {
@@ -71,7 +71,7 @@ select {
 .currency-container {
   display: flex;
   flex-direction: column;
-  background-color: rgba(185,185,185,0.3);
+  background-color: rgba(185,185,185,0.25);
   width: 55%;
   margin: 0 auto;
   height: 30em;

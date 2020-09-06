@@ -14,7 +14,11 @@ function CurrencyConverter() {
         currencies: currencies,
         currency1: currencies[8],
         currency2: currencies[31],
-        result: ""   
+        awayRate: "",
+        homeRate: "",
+        result: "",
+        resultCurrency1: "",
+        resultCurrency2: ""   
     }
 
     const [state, setState] = useState(initialState)
@@ -44,12 +48,17 @@ function CurrencyConverter() {
             fetch("https://api.exchangeratesapi.io/latest?base=" + state.currency1)
             .then(res => res.json())
             .then(data => {
-                const rate = data.rates[state.currency2]
-                const result = rate*state.amount
+                const homeRate = data.rates[state.currency2]
+                const awayRate = 1/homeRate
+                const result = homeRate*state.amount
                 setState(prevState => {
                     return {
                         ...prevState,
-                        result: result
+                        awayRate: awayRate,
+                        homeRate: homeRate,
+                        result: result,
+                        resultCurrency1: prevState.currency1,
+                        resultCurrency2: prevState.currency2
                     }
                 })
             })
@@ -97,7 +106,7 @@ function CurrencyConverter() {
                 </div> 
 
             </div>
-                {state.result && <Result result={state.result}/>}              
+                {state.result && <Result state={state}/>}              
         </div>
     )
 }
