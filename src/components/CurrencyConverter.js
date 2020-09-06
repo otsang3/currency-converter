@@ -24,9 +24,18 @@ function CurrencyConverter() {
         })
     }
 
+    const handleChange = (number) => {
+        setState(prevState => {
+            return {
+                ...prevState,
+                amount: number
+            }
+        })
+    }
+
     return(
         <div>
-            <input/>
+            <input type="number" onChange={(event) => handleChange(event.target.value)}/>
             <CurrencyList 
                 currencies={currencies}
                 name="currency1" 
