@@ -4,7 +4,7 @@ import CurrencyConverter from './CurrencyConverter';
 function MainContainer() {
 
     return(
-        <div>
+        <div className="main-container">
             <CurrencyConverter/>
         </div>
     )

@@ -38,22 +38,29 @@ function CurrencyConverter() {
     }
 
     const handleClick = () => {
-        fetch("https://api.exchangeratesapi.io/latest?base=" + state.currency1)
-        .then(res => res.json())
-        .then(data => {
-            const rate = data.rates[state.currency2]
-            const result = rate*state.amount
-            setState(prevState => {
-                return {
-                    ...prevState,
-                    result: result
-                }
+        if (state.amount == 0) {
+            return;
+        } else {
+            fetch("https://api.exchangeratesapi.io/latest?base=" + state.currency1)
+            .then(res => res.json())
+            .then(data => {
+                const rate = data.rates[state.currency2]
+                const result = rate*state.amount
+                setState(prevState => {
+                    return {
+                        ...prevState,
+                        result: result
+                    }
+                })
             })
-        })
+        }
+        
     }
 
     return(
-        <div className="main-container">
+        <div className="currency-container">
+
+            <h2 className="col-header">Currency Converter</h2>
             <div className="columns">
 
                 <div className="row">
