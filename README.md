@@ -1,4 +1,4 @@
-DEMO App: [jscurrency-converter.herokuapp.com](https://jscurrency-converter.herokuapp.com)
+DEMO App: [https://jscurrency-converter.herokuapp.com](https://jscurrency-converter.herokuapp.com)
 
 ![demo app screenshot](./src/images/screenshot.png)
 
