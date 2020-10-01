@@ -54,6 +54,7 @@ function CurrencyConverter() {
                 setState(prevState => {
                     return {
                         ...prevState,
+                        amount2: prevState.amount,
                         awayRate: awayRate,
                         homeRate: homeRate,
                         result: result,
@@ -100,7 +101,7 @@ function CurrencyConverter() {
                 <div className="row">
                     <button 
                         className="button-submit" 
-                        onClick={() => handleClick()}>
+                        onClick={handleClick}>
                         <FaArrowAltCircleRight size="3em" color="orange"/>
                     </button>
                 </div> 
